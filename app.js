@@ -4,8 +4,8 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
-// const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const postsRouter = require('./routes/posts');
 
 const app = express();
 
@@ -23,7 +23,7 @@ mongoose.connect('mongodb://localhost:27017')
         console.log('Connection failed!');
     });
 
-// app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/posts', postsRouter);
 
 module.exports = app;
